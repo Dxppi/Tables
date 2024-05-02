@@ -77,4 +77,9 @@
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Polynom\Polinomy Отчет.doc">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>

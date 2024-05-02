@@ -43,6 +43,9 @@
     <Text Include="tests\test.txt" />
     <Text Include="tests\test_data.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Polynom\Polinomy Отчет.doc" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
