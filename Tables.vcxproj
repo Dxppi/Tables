@@ -27,6 +27,8 @@
     <ClCompile Include="SortedTable.cpp" />
     <ClCompile Include="Stack.cpp" />
     <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TableArray.cpp" />
+    <ClCompile Include="TableList.cpp" />
     <ClCompile Include="UnsortedTable.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +39,8 @@
     <ClInclude Include="SortedTable.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Table.h" />
+    <ClInclude Include="TableArray.h" />
+    <ClInclude Include="TableList.h" />
     <ClInclude Include="UnsortedTable.h" />
   </ItemGroup>
   <ItemGroup>

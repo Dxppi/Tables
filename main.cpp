@@ -6,6 +6,8 @@
 #include "SortedTable.h"
 #include "BSTTable.h"
 #include "HashTable.h"
+#include "TableArray.h"
+#include "TableList.h"
 
 using namespace std;
 
@@ -48,6 +50,10 @@ void open_table(Table* table, const vector<string>& words) {
 			cout << "“аблица на основе бинарного дерева:\n";
 		else if (dynamic_cast<HashTable*>(table))
 			cout << "’еш таблица:\n";
+		else if (dynamic_cast<TableArray*>(table))
+			cout << "“аблица на массиве:\n";
+		else if (dynamic_cast<TableList*>(table))
+			cout << "“аблица на списках:\n";
 
 		cout << " 1  внести текст в таблицу\n\
  2  добавить элемент в таблицу\n\
@@ -126,6 +132,7 @@ cout << " 0  вернутьс€ к выбору таблицы\n";
 				tmp->print_tree();
 			break;
 		}
+		
 		case 0: {
 			system("CLS");
 			return;
@@ -145,7 +152,7 @@ int main() {
 	SetConsoleOutputCP(1251);
 	vector <string> words;
 	int exit = 1, menu;
-	Table* tables[4] = {new UnsortedTable, new SortedTable, new BSTTable, new HashTable};
+	Table* tables[6] = {new UnsortedTable, new SortedTable, new BSTTable, new HashTable, new TableArray, new TableList};
 
 	while(exit){
 		cout << " 1  ввести текст из файла\n\
@@ -153,6 +160,8 @@ int main() {
  3  использовать отсортированную таблицу\n\
  4  использовать таблицу на основе бинарного дерева\n\
  5  использовать хеш таблицу\n\
+ 6  использовать таблицу на массиве \n\
+ 7 использовать таблицу на списках\n\
  0  завершить работу\n";
 		cin >> menu;
 		switch (menu) {
@@ -194,6 +203,20 @@ int main() {
 			open_table(tables[menu - 2], words);
 			delete tables[menu - 2];
 			tables[menu - 2] = new HashTable;
+			break;
+		}
+		case 6: {
+			system("CLS");
+			open_table(tables[menu - 2], words);
+			delete tables[menu - 2];
+			tables[menu - 2] = new TableArray;
+			break;
+		}
+		case 7: {
+			system("CLS");
+			open_table(tables[menu - 2], words);
+			delete tables[menu - 2];
+			tables[menu - 2] = new TableList;
 			break;
 		}
 		case 0: {
