@@ -10,7 +10,7 @@ private:
 	const int capacity;
 
 public:
-	TableArray(int capacity = 100);
+	TableArray(int capacity = 10002);
 	~TableArray() override;
 	void add(const std::string& item) override;
 	int del(const std::string& item) override;

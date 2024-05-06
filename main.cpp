@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Windows.h>
 #include <vector>
+#include <time.h> 
 #include <fstream>
 #include "UnsortedTable.h";
 #include "SortedTable.h"
@@ -37,6 +38,71 @@ void read_file(vector <string>& words) {
 	}
 	f.close();
 }
+
+static void compare_search_performance() {
+	string key;
+	Table* tables[6] = { new UnsortedTable, new SortedTable, new BSTTable, new HashTable, new TableArray, new TableList };
+	vector <string> words;
+	read_file(words);
+	time_t start = 0, end = 0;
+	start = clock();
+	for (string word : words) {
+		
+		tables[0]->add(word);
+		tables[1]->add(word);
+		tables[2]->add(word);
+		tables[3]->add(word);
+		tables[4]->add(word);
+		tables[5]->add(word);
+		
+	}
+	end = clock();
+	double res = ((double)(end - start)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+	cout << "Введите ключ" << endl;
+	cin >> key;
+	clock_t start_time = clock();
+	int word =tables[0]->get(key);
+	clock_t end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res<< word<< endl;
+
+	start_time = clock();
+	tables[1]->get(key);
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+
+
+	start_time = clock();
+	tables[2]->get(key);
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+
+
+	start_time = clock();
+	tables[3]->get(key);
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+
+	start_time = clock();
+	tables[4]->get(key);
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+
+	start_time = clock();
+	tables[5]->get(key);
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+	system("pause");
+}
+
+
+
 
 void open_table(Table* table, const vector<string>& words) {
 	int exit = 1;
@@ -161,7 +227,8 @@ int main() {
  4  использовать таблицу на основе бинарного дерева\n\
  5  использовать хеш таблицу\n\
  6  использовать таблицу на массиве \n\
- 7 использовать таблицу на списках\n\
+ 7  использовать таблицу на списках\n\
+ 8  сравнить скорость работы поиска\n\
  0  завершить работу\n";
 		cin >> menu;
 		switch (menu) {
@@ -217,6 +284,11 @@ int main() {
 			open_table(tables[menu - 2], words);
 			delete tables[menu - 2];
 			tables[menu - 2] = new TableList;
+			break;
+		}
+		case 8: {
+			system("CLS");
+			compare_search_performance();
 			break;
 		}
 		case 0: {

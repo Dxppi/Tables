@@ -7,7 +7,7 @@
 class TableList : public Table {
 private:
 	List* entries;
-	static const int SIZE = 5;
+	static const int SIZE = 10002;
 
 public:
 	TableList();

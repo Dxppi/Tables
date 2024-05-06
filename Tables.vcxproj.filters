@@ -88,6 +88,9 @@
     <Text Include="tests\test_data.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="Data.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Polynom\Polinomy Отчет.doc">

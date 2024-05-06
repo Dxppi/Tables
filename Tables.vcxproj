@@ -44,6 +44,7 @@
     <ClInclude Include="UnsortedTable.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Data.txt" />
     <Text Include="tests\test.txt" />
     <Text Include="tests\test_data.txt" />
   </ItemGroup>
