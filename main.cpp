@@ -47,54 +47,80 @@ static void compare_search_performance() {
 	time_t start = 0, end = 0;
 	start = clock();
 	for (string word : words) {
-		
+
 		tables[0]->add(word);
 		tables[1]->add(word);
 		tables[2]->add(word);
 		tables[3]->add(word);
 		tables[4]->add(word);
 		tables[5]->add(word);
-		
+
 	}
-	end = clock();
-	double res = ((double)(end - start)) / CLOCKS_PER_SEC;
-	cout << "Время: " << res << endl;
+	double res;
+
+	int elem;
+
 	cout << "Введите ключ" << endl;
 	cin >> key;
 	clock_t start_time = clock();
-	int word =tables[0]->get(key);
+
+	elem = tables[0]->get(key);
+	cout << key << " - " << elem << endl;
+	cout << "Количество операций для поиска элемента : " << tables[0]->get_counter() << endl;
+
 	clock_t end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-	cout << "Время: " << res<< word<< endl;
+	cout << "Время: " << res << endl;
 
 	start_time = clock();
-	tables[1]->get(key);
+
+	elem = tables[1]->get(key);
+	cout << key << " - " << elem << endl;
+	cout << "Количество операций для поиска элемента : " << tables[1]->get_counter() << endl;
+
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+	/*tables[1]->print();*/
+
+	start_time = clock();
+
+	elem = tables[2]->get(key);
+	cout << key << " - " << elem << endl;
+	cout << "Количество операций для поиска элемента : " << tables[2]->get_counter() << endl;
+
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
 	cout << "Время: " << res << endl;
 
 
 	start_time = clock();
-	tables[2]->get(key);
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-	cout << "Время: " << res << endl;
 
-
-	start_time = clock();
-	tables[3]->get(key);
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-	cout << "Время: " << res << endl;
-
-	start_time = clock();
-	tables[4]->get(key);
+	elem = tables[3]->get(key);
+	cout << key << " - " << elem << endl;
+	cout << "Количество операций для поиска элемента : " << tables[3]->get_counter() << endl;
+	
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
 	cout << "Время: " << res << endl;
 
 	start_time = clock();
-	tables[5]->get(key);
+
+
+	elem = tables[4]->get(key);
+	cout << key << " - " << elem << endl;
+	cout << "Количество операций для поиска элемента : " << tables[4]->get_counter() << endl;
+
+	end_time = clock();
+	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Время: " << res << endl;
+
+	start_time = clock();
+
+	elem = tables[5]->get(key);
+	cout << key << " - " << elem << endl;
+	cout << "Количество операций для поиска элемента : " << tables[5]->get_counter() << endl;
+
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
 	cout << "Время: " << res << endl;

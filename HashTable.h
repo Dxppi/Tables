@@ -4,7 +4,7 @@
 class HashTable : public Table {
 private:
 	List* entries;
-	static const int SIZE = 10001;
+	static const int SIZE = 120001;
 	unsigned int get_hash(const std::string& value);
 public:
 	HashTable();

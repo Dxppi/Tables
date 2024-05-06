@@ -33,9 +33,6 @@
     <ClCompile Include="queue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HashTable.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="List.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -47,6 +44,9 @@
     </ClCompile>
     <ClCompile Include="TableList.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HashTable.cpp">
+      <Filter>Header Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -9,7 +9,7 @@ protected:
 	int MAX_SIZE;
 	int cur_size;
 public:
-	explicit UnsortedTable(int MAX_SIZE = 1002);
+	explicit UnsortedTable(int MAX_SIZE = 120002);
 	UnsortedTable(const UnsortedTable&);
 	~UnsortedTable();
 	void add(const std::string& key) override;
