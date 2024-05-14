@@ -107,6 +107,16 @@ void List::print(int index) {
 		cur = cur->next;
 	}
 }
+void List::print() {
+	Link* cur;
+	cur = first->next;
+	while (cur != first) {
+		std::cout <<
+			std::setw(30) << std::left << cur->data.key <<
+			std::setw(30) << std::left << cur->data.value << std::endl;
+		cur = cur->next;
+	}
+}
 
 bool List::is_empty() {
 	return first->next == first;

@@ -32,7 +32,7 @@ void TableList::print() const {
 
     for (int i = 0; i < SIZE; i++)
         if (!entries[i].is_empty())
-            entries[i].print(i);
+            entries[i].print();
 }
 
 int TableList::get(const std::string& item) {

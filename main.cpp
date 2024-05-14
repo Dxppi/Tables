@@ -66,7 +66,7 @@ static void compare_search_performance() {
 
 	elem = tables[0]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента : " << tables[0]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента в неотсортированной: " << tables[0]->get_counter() << endl;
 
 	clock_t end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
@@ -76,7 +76,7 @@ static void compare_search_performance() {
 
 	elem = tables[1]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента : " << tables[1]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента в сортированной : " << tables[1]->get_counter() << endl;
 
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
@@ -87,7 +87,7 @@ static void compare_search_performance() {
 
 	elem = tables[2]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента : " << tables[2]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента в дереве: " << tables[2]->get_counter() << endl;
 
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
@@ -98,7 +98,7 @@ static void compare_search_performance() {
 
 	elem = tables[3]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента : " << tables[3]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента в хештаблице: " << tables[3]->get_counter() << endl;
 	
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
@@ -109,7 +109,7 @@ static void compare_search_performance() {
 
 	elem = tables[4]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента : " << tables[4]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента на массиве: " << tables[4]->get_counter() << endl;
 
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
@@ -119,7 +119,7 @@ static void compare_search_performance() {
 
 	elem = tables[5]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента : " << tables[5]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента на списках: " << tables[5]->get_counter() << endl;
 
 	end_time = clock();
 	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;

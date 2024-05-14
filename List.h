@@ -14,6 +14,7 @@ public:
 	int del(const std::string key, int& counter);
 	int get(const std::string key, int& counter);
 	void print(int index);
+	void print();
 	bool is_empty();
 	bool is_full();
 	void clear();
