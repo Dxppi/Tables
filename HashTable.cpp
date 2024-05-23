@@ -35,7 +35,7 @@ int HashTable::del(const std::string& key) {
 }
 
 int HashTable::get(const std::string& key) {
-	int res;
+	int res = -1;
 	unsigned int index;
 	counter = -1;
 	index = get_hash(key);

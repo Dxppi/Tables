@@ -39,9 +39,6 @@
     <ClCompile Include="UnsortedTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TableArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="TableList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,9 +71,6 @@
     <ClInclude Include="UnsortedTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TableArray.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TableList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -89,6 +83,15 @@
       <Filter>Source Files</Filter>
     </Text>
     <Text Include="Data.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="10000.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="50000.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="100000.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>

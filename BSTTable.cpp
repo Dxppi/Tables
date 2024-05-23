@@ -160,7 +160,7 @@ int BSTTable::del(const std::string& key) {
 int BSTTable::get(const std::string& key) {
 	int res = 0;
 	Node* cur;
-	counter = 1;
+	counter = 0;
 	cur = root;
 	while (cur != nullptr) {
 		counter++;

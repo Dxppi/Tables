@@ -1,16 +1,17 @@
 #include <iostream>
 #include <Windows.h>
 #include <vector>
-#include <time.h> 
+#include <chrono>
+#include <ctime>
 #include <fstream>
 #include "UnsortedTable.h";
 #include "SortedTable.h"
 #include "BSTTable.h"
 #include "HashTable.h"
-#include "TableArray.h"
 #include "TableList.h"
 
 using namespace std;
+using namespace std::chrono;
 
 void read_file(vector <string>& words) {
 	string filename, line, word;
@@ -41,7 +42,7 @@ void read_file(vector <string>& words) {
 
 static void compare_search_performance() {
 	string key;
-	Table* tables[6] = { new UnsortedTable, new SortedTable, new BSTTable, new HashTable, new TableArray, new TableList };
+	Table* tables[5] = { new UnsortedTable, new SortedTable, new BSTTable, new HashTable, new TableList };
 	vector <string> words;
 	read_file(words);
 	time_t start = 0, end = 0;
@@ -53,82 +54,76 @@ static void compare_search_performance() {
 		tables[2]->add(word);
 		tables[3]->add(word);
 		tables[4]->add(word);
-		tables[5]->add(word);
-
+			
 	}
-	double res;
+	/*cout << "Несортированная талблица" << endl;
+	tables[0]->print();
+	cout << "сортированная талблица" << endl;
+	tables[1]->print();
+	cout << "талблица на дереве" << endl;
+	tables[2]->print();
+	cout << "Хеш талблица" << endl;
+	tables[3]->print();
+	cout << "талблица на списках" << endl;
+	tables[4]->print();*/
+	
 
+	double res;
 	int elem;
 
 	cout << "Введите ключ" << endl;
 	cin >> key;
-	clock_t start_time = clock();
+	auto start_time = high_resolution_clock::now();
 
 	elem = tables[0]->get(key);
 	cout << key << " - " << elem << endl;
 	cout << "Количество операций для поиска элемента в неотсортированной: " << tables[0]->get_counter() << endl;
 
-	clock_t end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	auto end_time = high_resolution_clock::now();
+	res = duration_cast<duration<double>>(end_time - start_time).count();
 	cout << "Время: " << res << endl;
 
-	start_time = clock();
+	start_time = high_resolution_clock::now();
 
 	elem = tables[1]->get(key);
 	cout << key << " - " << elem << endl;
 	cout << "Количество операций для поиска элемента в сортированной : " << tables[1]->get_counter() << endl;
 
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	end_time = high_resolution_clock::now();
+	res = duration_cast<duration<double>>(end_time - start_time).count();
 	cout << "Время: " << res << endl;
-	/*tables[1]->print();*/
 
-	start_time = clock();
+	start_time = high_resolution_clock::now();
 
 	elem = tables[2]->get(key);
 	cout << key << " - " << elem << endl;
 	cout << "Количество операций для поиска элемента в дереве: " << tables[2]->get_counter() << endl;
 
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	end_time = high_resolution_clock::now();
+	res = duration_cast<duration<double>>(end_time - start_time).count();
 	cout << "Время: " << res << endl;
 
-
-	start_time = clock();
+	start_time = high_resolution_clock::now();
 
 	elem = tables[3]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента в хештаблице: " << tables[3]->get_counter() << endl;
-	
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	cout << "Количество операций для поиска элемента в хештаблице: " << tables[3]->get_counter()<< endl;
+
+	end_time = high_resolution_clock::now();
+	res = duration_cast<duration<double>>(end_time - start_time).count();
 	cout << "Время: " << res << endl;
 
-	start_time = clock();
-
+	start_time = high_resolution_clock::now();
 
 	elem = tables[4]->get(key);
 	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента на массиве: " << tables[4]->get_counter() << endl;
+	cout << "Количество операций для поиска элемента на списках: " << tables[4]->get_counter() << endl;
 
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
-	cout << "Время: " << res << endl;
-
-	start_time = clock();
-
-	elem = tables[5]->get(key);
-	cout << key << " - " << elem << endl;
-	cout << "Количество операций для поиска элемента на списках: " << tables[5]->get_counter() << endl;
-
-	end_time = clock();
-	res = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+	end_time = high_resolution_clock::now();
+	res = duration_cast<duration<double>>(end_time - start_time).count();
 	cout << "Время: " << res << endl;
 	system("pause");
 }
-
-
-
 
 void open_table(Table* table, const vector<string>& words) {
 	int exit = 1;
@@ -142,8 +137,6 @@ void open_table(Table* table, const vector<string>& words) {
 			cout << "Таблица на основе бинарного дерева:\n";
 		else if (dynamic_cast<HashTable*>(table))
 			cout << "Хеш таблица:\n";
-		else if (dynamic_cast<TableArray*>(table))
-			cout << "Таблица на массиве:\n";
 		else if (dynamic_cast<TableList*>(table))
 			cout << "Таблица на списках:\n";
 
@@ -244,7 +237,7 @@ int main() {
 	SetConsoleOutputCP(1251);
 	vector <string> words;
 	int exit = 1, menu;
-	Table* tables[6] = {new UnsortedTable, new SortedTable, new BSTTable, new HashTable, new TableArray, new TableList};
+	Table* tables[6] = {new UnsortedTable, new SortedTable, new BSTTable, new HashTable, new TableList};
 
 	while(exit){
 		cout << " 1  ввести текст из файла\n\
@@ -252,9 +245,8 @@ int main() {
  3  использовать отсортированную таблицу\n\
  4  использовать таблицу на основе бинарного дерева\n\
  5  использовать хеш таблицу\n\
- 6  использовать таблицу на массиве \n\
- 7  использовать таблицу на списках\n\
- 8  сравнить скорость работы поиска\n\
+ 6  использовать таблицу на списках\n\
+ 7  сравнить скорость работы поиска\n\
  0  завершить работу\n";
 		cin >> menu;
 		switch (menu) {
@@ -302,17 +294,10 @@ int main() {
 			system("CLS");
 			open_table(tables[menu - 2], words);
 			delete tables[menu - 2];
-			tables[menu - 2] = new TableArray;
-			break;
-		}
-		case 7: {
-			system("CLS");
-			open_table(tables[menu - 2], words);
-			delete tables[menu - 2];
 			tables[menu - 2] = new TableList;
 			break;
 		}
-		case 8: {
+		case 7: {
 			system("CLS");
 			compare_search_performance();
 			break;
